@@ -27,14 +27,14 @@ Application based on code from [NodeJS app on Azure](https://docs.microsoft.com/
 
 Follow code iterations in respective folders:
 
-[Iteration 1](tree/master/Iteration1/README.md)
+[Iteration 1](Iteration1/README.md)
 
-[Iteration 2](tree/master/Iteration2/README.md)
+[Iteration 2](Iteration2/README.md)
 
-[Iteration 3](tree/master/Iteration3/README.md)
+[Iteration 3](Iteration3/README.md)
 
-[Iteration 4](tree/master/Iteration4/README.md)
+[Iteration 4](Iteration4/README.md)
 
-[Iteration 5](tree/master/Iteration5/README.md)
+[Iteration 5](Iteration5/README.md)
 
-[Iteration 6 (Final)](tree/master/Iteration6/README.md)
+[Iteration 6 (Final)](Iteration6/README.md)
