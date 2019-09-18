@@ -1,6 +1,5 @@
 {
     "Key": "<PUT_YOUR_KEY_HERE>",
-    "Url": "<PUT_YOUR_FULL_URL_HERE>",
     "ModelPath": "<PUT_PATH_TO_ITERATION_HERE>",
     "ServerHost": "<PUT_HOST_SERVER_HERE>"
 }

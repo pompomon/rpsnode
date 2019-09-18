@@ -5,19 +5,22 @@ Code for "Rock-paper-scissors" game used at Azure Custom Vision hands-on worksho
 
 1. Azure Subscribtion
 2. Published Custom Vision iteration and access key
-3. [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-4. [NodeJS](https://nodejs.org/en/download/)
+3. [NodeJS](https://nodejs.org/en/download/)
 
 # Setup
 
 ## Azure Subscription
 
-Create a new Azure subscription - https://azure.microsoft.com/
+1. Create a new Azure subscription - https://azure.microsoft.com/
+2. Create a new resource group (TBD image)
+3. Create a new Custom Vision resource (TBD image)
+4. Create a new AppService resource (TBD image)
+
 
 ## Custom Vision
 
 1. Sign in using created Azure subscription https://www.customvision.ai/
-2. Create a new Custom Vision project
+2. Create a new Custom Vision project, select resources created previously
 3. Upload and tag images
 4. Train a model
 5. Publish iteration
