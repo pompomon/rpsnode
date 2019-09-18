@@ -43,8 +43,10 @@ function init() {
         let counterTimer;
         const videoElement = document.querySelector("video");
         const canvasElement = document.querySelector("canvas");
+        const counterElement = appContainer.querySelector(".appCounter");
         // Reset elements
         canvasElement.classList.add('hide');
+        counterElement.classList.remove('hide');
         const enginePickElement = document.querySelector('.appEnginePick');
         picks.forEach(pickLabel => {
             enginePickElement.classList.remove(pickLabel);
@@ -61,7 +63,9 @@ function init() {
                 clearTimeout(counterTimer);
             }
             counter += counterStep;
+            counterElement.innerHTML = counter;
             if (counter >= counterStop) {
+                counterElement.classList.add('hide');
                 takePhoto(videoElement, canvasElement);
                 return;
             }
