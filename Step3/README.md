@@ -1,5 +1,9 @@
-# Iteration 3
+# Step3 changes
 Goal:
+* Submit picture to index.js
+* Receive picture on index.js
+* Submit picture from index.js to Custom Vision API
+* Receive predictions from Custom Vision
 
 ## Changes to public/js/app.js
 ``` javascript
@@ -34,6 +38,16 @@ Goal:
         submitImageFromCanvas(canvasElement);
     };
 ```
+
+## Create config.js with CustomVision API keys
+```json
+{
+    "Key": "<PUT_YOUR_KEY_HERE>",
+    "ModelPath": "<PUT_PATH_TO_ITERATION_HERE>", // example path - /customvision/v3.0/Prediction/b99e831f-1d60-4e36-91d3-05eac0d2e03c/classify/iterations/Iteration2/image 
+    "ServerHost": "<PUT_HOST_SERVER_HERE>" // example host - westeurope.api.cognitive.microsoft.com
+}
+```
+
 ## Changes to index.js
 ```javascript
 const bodyParser = require('body-parser')
@@ -77,15 +91,6 @@ app.post('/predict', (request, response) => {
     customVisionPostRequest.write(imageData);
     customVisionPostRequest.end();
 });
-```
-
-## Create config.js with CustomVision API keys
-```json
-{
-    "Key": "<PUT_YOUR_KEY_HERE>",
-    "ModelPath": "<PUT_PATH_TO_ITERATION_HERE>", // example path - /customvision/v3.0/Prediction/b99e831f-1d60-4e36-91d3-05eac0d2e03c/classify/iterations/Iteration2/image 
-    "ServerHost": "<PUT_HOST_SERVER_HERE>" // example host - westeurope.api.cognitive.microsoft.com
-}
 ```
 
 # Troubleshooting

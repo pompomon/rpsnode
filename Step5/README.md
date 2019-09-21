@@ -1,5 +1,7 @@
-# Iteration 5
+# Step5
 Goal:
+* Add AI opponent
+* Show opponents move
 
 ## Changes in public/index.html
 ```HTML

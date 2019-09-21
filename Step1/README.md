@@ -1,4 +1,4 @@
-# First iteration setup
+# First step setup
 
 After cloning the repository, you can either 
 

@@ -1,5 +1,8 @@
-# Iteration2 changes
+# Step2 changes
 Goal:
+* Initalize camera
+* Take a picture
+* Store it in canvas element
 
 ## index.html changes
 ```HTML

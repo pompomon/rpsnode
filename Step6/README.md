@@ -1,5 +1,7 @@
-# Iteration 5
+# Step6
 Goal:
+* Visualize counter
+* Show results
 
 ### Changes in public/index.html
 ```HTML
