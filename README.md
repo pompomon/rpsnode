@@ -180,33 +180,40 @@ Code for "Rock-paper-scissors" game used at Azure Custom Vision hands-on worksho
 ## Web application code
 Application based on code from [NodeJS app on Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs) example.
 
+### Structure
+
+* index.js - server-side logic
+* public/index.html - WebApp HTML template
+* public/css/app.css - WebApp CSS styles
+* public/js/app.js - WebApp Javascript logic
+
 ### Local development 
-Local deployment steps are the same for all iterations
-1. Open "IterationN" folder
+Local development is the same for all steps:
+1. Open "StepN" folder
 2. Run `npm install`
 3. Run `npm start`
 4. Open http://localhost:1337
 
-### Deployment steps 
-Deployment steps are the same for all iterations
-1. Open "IterationN" folder
+### Azure deployment 
+Azure dseployment is the same for all steps:
+1. Open "StepN" folder
 2. Run `npm install`
-3. Create zip archive with contents of "IterationN" folder
+3. Create zip archive with contents of "StepN" folder
 4. Open <choose_unique_name>.scm.azurewebsites.net
 5. navigate to Tools -> Zip Push Deploy
 6. Drag-and-drop zip archive to /wwwroot
 7. Open <choose_unique_name>.azurewebsites.net and verify that site is running
 
-Code changes are described in respective iteration folders:
+Code changes are described in respective steps:
 
-[Iteration 1](Iteration1/README.md)
+[Step 1](Step1/README.md)
 
-[Iteration 2](Iteration2/README.md)
+[Step 2](Step2/README.md)
 
-[Iteration 3](Iteration3/README.md)
+[Step 3](Step3/README.md)
 
-[Iteration 4](Iteration4/README.md)
+[Step 4](Step4/README.md)
 
-[Iteration 5](Iteration5/README.md)
+[Step 5](Step5/README.md)
 
-[Iteration 6 (Final)](Iteration6/README.md)
+[Step 6 (Final)](Step6/README.md)
