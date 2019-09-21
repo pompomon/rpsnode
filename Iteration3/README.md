@@ -40,7 +40,7 @@ const bodyParser = require('body-parser')
 const PredictionConfig = require("./config.json");
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.raw());
+app.use(bodyParser.raw({ limit: '10MB' }));
 app.use(express.static('public'));
 
 
@@ -83,9 +83,8 @@ app.post('/predict', (request, response) => {
 ```json
 {
     "Key": "<PUT_YOUR_KEY_HERE>",
-    "Url": "<PUT_YOUR_FULL_URL_HERE>",
-    "ModelPath": "<PUT_PATH_TO_ITERATION_HERE>",
-    "ServerHost": "<PUT_HOST_SERVER_HERE>"
+    "ModelPath": "<PUT_PATH_TO_ITERATION_HERE>", // example path - /customvision/v3.0/Prediction/b99e831f-1d60-4e36-91d3-05eac0d2e03c/classify/iterations/Iteration2/image 
+    "ServerHost": "<PUT_HOST_SERVER_HERE>" // example host - westeurope.api.cognitive.microsoft.com
 }
 ```
 
