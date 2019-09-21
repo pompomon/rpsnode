@@ -10,7 +10,7 @@ Goal:
           <div class="answer"><span>AI:&nbsp;</span><span class="appEngineAnswer value">-</span></div>
         </div>
         <div class="resultText"></div>
-        <div class="appRestart"><a href="#" id="appRestartButton" class="appRestartButton">Again!</a></div>
+        <div class="appRestart"><button id="appRestartButton" class="appRestartButton hide">NEW GAME</button></div>
     </div>
 ```
 ## Changes in public/css/app.css
@@ -100,6 +100,7 @@ startCounter()
     ...
     // Reset elements
     canvasElement.classList.add('hide');
+    appRestartButton.classList.add('hide');
     const enginePickElement = document.querySelector('.appEnginePick');
     picks.forEach(pickLabel => {
         enginePickElement.classList.remove(pickLabel);
@@ -118,4 +119,5 @@ processPrediction()
     appContainer.classList.add(resultClasses[result]);
     appContainer.querySelector(".resultText").classList.remove("hide");
     appContainer.querySelector(".resultText").innerHTML = result;
+    appRestartButton.classList.remove('hide');
 ```    

@@ -4,6 +4,7 @@ function init() {
     const appResults = document.getElementById('appResults');
     const appContainer = document.getElementById('appContainer');
     const videoElement = document.querySelector('video');
+    const appRestartButton = document.getElementById('appRestartButton');
     
     const picks = ["rock", "paper", "scissors"];
     const getEnginePick = () => {
@@ -46,7 +47,11 @@ function init() {
         const counterElement = appContainer.querySelector(".appCounter");
         // Reset elements
         canvasElement.classList.add('hide');
+        appRestartButton.classList.add('hide');
         counterElement.classList.remove('hide');
+        appContainer.querySelector(".resultText").classList.add("hide");
+        appResults.querySelector(".appUserAnswer").innerHTML = "-";
+        appResults.querySelector(".appEngineAnswer").innerHTML = "-";
         const enginePickElement = document.querySelector('.appEnginePick');
         picks.forEach(pickLabel => {
             enginePickElement.classList.remove(pickLabel);
@@ -54,9 +59,6 @@ function init() {
         Object.keys(resultClasses).forEach(function (key) {
             appContainer.classList.remove(resultClasses[key]);
         });
-        appContainer.querySelector(".resultText").classList.add("hide");
-        appResults.querySelector(".appUserAnswer").innerHTML = "-";
-        appResults.querySelector(".appEngineAnswer").innerHTML = "-";
 
         const counterTimerTick = function counterTimerTick() {
             if (counterTimer) {
@@ -85,6 +87,7 @@ function init() {
         appContainer.classList.add(resultClasses[result]);
         appContainer.querySelector(".resultText").classList.remove("hide");
         appContainer.querySelector(".resultText").innerHTML = result;
+        appRestartButton.classList.remove('hide');
     };
 
     const submitImageFromCanvas = (canvasElement) => {
@@ -158,8 +161,7 @@ function init() {
     }
 
     bindCamera(videoElement);
-    appRestart = document.getElementById('appRestartButton');
-    appRestart.addEventListener("click", function(){
+    appRestartButton.addEventListener("click", function(){
         startCounter();
     });
 }

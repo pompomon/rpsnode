@@ -3,6 +3,7 @@ function init() {
     let webcamStream;
     const appResults = document.getElementById('appResults');
     const videoElement = document.querySelector('video');
+    const appRestartButton = document.getElementById('appRestartButton');
     
     const picks = ["rock", "paper", "scissors"];
     const getEnginePick = () => {
@@ -20,6 +21,7 @@ function init() {
         const canvasElement = document.querySelector("canvas");
         // Clear elements styles
         canvasElement.classList.add('hide');
+        appRestartButton.classList.add('hide');
         const enginePickElement = document.querySelector('.appEnginePick');
         picks.forEach(pickLabel => {
             enginePickElement.classList.remove(pickLabel);
@@ -45,6 +47,7 @@ function init() {
         appResults.querySelector(".appUserAnswer").innerHTML = prediciton;
         appResults.querySelector(".appEngineAnswer").innerHTML = enginePick;
         document.querySelector('.appEnginePick').classList.add(enginePick);
+        appRestartButton.classList.remove('hide');    
     };
 
     const submitImageFromCanvas = (canvasElement) => {
@@ -118,11 +121,9 @@ function init() {
     }
 
     bindCamera(videoElement);
-    appRestart = document.getElementById('appRestartButton');
-    appRestart.addEventListener("click", function(){
+    appRestartButton.addEventListener("click", function(){
         startCounter();
     });
-    // Do something
 }
 
 function onDocumentReady(fn) {

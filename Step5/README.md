@@ -9,7 +9,7 @@ Goal:
           <div class="answer"><span>User:&nbsp;</span><span class="appUserAnswer value">-</span></div>
           <div class="answer"><span>AI:&nbsp;</span><span class="appEngineAnswer value">-</span></div>
         </div>
-        <div class="appRestart"><a href="#" id="appRestartButton" class="appRestartButton">Again!</a></div>
+        <div class="appRestart"><button id="appRestartButton" class="appRestartButton hide">NEW GAME</button></div>
     </div>
     <div class="appUserInput">
           <video id="video" autoplay></video>
@@ -72,6 +72,7 @@ startCounter()
     ...
     // Clear elements styles
     canvasElement.classList.add('hide');
+    appRestartButton.classList.add('hide');
     const enginePickElement = document.querySelector('.appEnginePick');
     picks.forEach(pickLabel => {
         enginePickElement.classList.remove(pickLabel);
@@ -81,6 +82,7 @@ processPrediction = (prediciton, enginePick) => {
     appResults.querySelector(".appUserAnswer").innerHTML = prediciton;
     appResults.querySelector(".appEngineAnswer").innerHTML = enginePick;
     document.querySelector('.appEnginePick').classList.add(enginePick);
+    appRestartButton.classList.remove('hide');
 };
 ...
 submitImageFromCanvas()

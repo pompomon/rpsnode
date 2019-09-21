@@ -3,6 +3,7 @@ function init() {
     let webcamStream;
     const appResults = document.getElementById('appResults');
     const videoElement = document.querySelector('video');
+    const appRestartButton = document.getElementById('appRestartButton');
 
     let counter = 0;
     const counterStart = 0;
@@ -14,7 +15,8 @@ function init() {
         const videoElement = document.querySelector("video");
         const canvasElement = document.querySelector("canvas");
         canvasElement.classList.add('hide');
-
+        appRestartButton.classList.add('hide');
+        
         const counterTimerTick = function counterTimerTick() {
             if (counterTimer) {
                 clearTimeout(counterTimer);
@@ -33,6 +35,7 @@ function init() {
 
     const processPrediction = (prediciton) => {
         appResults.querySelector(".appUserAnswer").innerHTML = prediciton;
+        appRestartButton.classList.remove('hide');
     };
 
     const submitImageFromCanvas = (canvasElement) => {
@@ -105,11 +108,9 @@ function init() {
     }
 
     bindCamera(videoElement);
-    appRestart = document.getElementById('appRestartButton');
-    appRestart.addEventListener("click", function(){
+    appRestartButton.addEventListener("click", function(){
         startCounter();
     });
-    // Do something
 }
 
 function onDocumentReady(fn) {

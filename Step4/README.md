@@ -25,7 +25,7 @@ Goal:
       <div class="appResults" id="appResults">
         <div class="answer"><span>User:&nbsp;</span><span class="appUserAnswer value">-</span></div>
       </div>
-      <div class="appRestart"><a href="#" id="appRestartButton" class="appRestartButton">Again!</a></div>
+      <div class="appRestart"><button id="appRestartButton" class="appRestartButton hide">NEW GAME</button></div>
     </div>
 ```
 
@@ -36,13 +36,13 @@ Goal:
     position: relative;
     height: 20%;
     width: 100%;
-    font-size: 1.5em;
+    font-size: 1.3em;
     box-sizing: border-box;
     background: #3c3c3c;
     color: #cccccc;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
 }
@@ -57,7 +57,8 @@ Goal:
 
 .appResults .answer {
     flex: 0;
-    padding: 0 0.5em 0 0;
+    padding: 0.5em;
+    text-transform: uppercase;
 }
 
 .appResults .answer .value {
@@ -70,21 +71,32 @@ Goal:
 }
 
 .appPanel .appRestartButton {
-    color: #fff;
+    padding: 0.25em 0.5em;
+    font-size: 1em;
+    border-radius: 1em;
 }
 
 .hide {
-    display: none!important;
+    visibility: hidden;
 }
 ```
 ### for .appContainer .appUserInput 
 change `height: 80%;`
 
 ## Changes in public/js/app.js
+### reorder + optimise a bit
 ```javascript
-    const processPrediction = (prediciton) => {
-        appResults.querySelector(".appUserAnswer").innerHTML = prediciton;
-    };
+// Global variables
+let webcamStream;
+const appResults = document.getElementById('appResults');
+const videoElement = document.querySelector('video');
+const appRestartButton = document.getElementById('appRestartButton');
+
+let counter = 0;
+const counterStart = 0;
+const counterStop = 4;
+const counterStep = 1;
+const timerTick = 1000;
 ```
 ### in submitImageFromCanvas()
 ```javascript
@@ -94,27 +106,29 @@ change `height: 80%;`
     processPrediction(prediction);
     ...
 ```
+### Add new method
+```javascript
+    const processPrediction = (prediciton) => {
+        appResults.querySelector(".appUserAnswer").innerHTML = prediciton;
+        appRestartButton.classList.remove('hide');
+    };
+```
 ### in startCounter()
 ```javascript
     ...
     canvasElement.classList.add('hide');
+    appRestartButton.classList.add('hide');
 ```
 ### in const takePhoto = (videoElement, canvasElement) => {
 ```javascript
     ...
     canvasElement.classList.remove('hide');
 ```
-
-### reorder + optimise a bit
+### After bindCamera(videoElement); call
 ```javascript
-// Global variables
-let webcamStream;
-const appResults = document.getElementById('appResults');
-const videoElement = document.querySelector('video');
-
-let counter = 0;
-const counterStart = 0;
-const counterStop = 4;
-const counterStep = 1;
-const timerTick = 1000;
+    ...
+    bindCamera(videoElement);
+    appRestartButton.addEventListener("click", function(){
+        startCounter();
+    });
 ```
