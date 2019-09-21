@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const PredictionConfig = require("./config.json");
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.raw());
+app.use(bodyParser.raw({ limit: '10MB' }));
 app.use(express.static('public'));
 
 

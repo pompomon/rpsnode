@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const PredictionConfig = require("./config.json");
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.raw());
+app.use(bodyParser.raw({ limit: '10MB' }));
 app.use(express.static('public'));
 
 
@@ -18,7 +18,7 @@ app.post('/predict', (request, response) => {
     const imageData = request.body;
     const fs = require("fs");
     fs.writeFileSync("test.png", imageData);
-        
+
     const customVisionPostOptions = {
         hostname: PredictionConfig.ServerHost,
         port: 443,

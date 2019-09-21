@@ -88,3 +88,28 @@ app.post('/predict', (request, response) => {
     "ServerHost": "<PUT_HOST_SERVER_HERE>"
 }
 ```
+
+# Troubleshooting
+In case you are getting errors about body size on POST, replace the following code in public/js/app.js:
+
+```javascript
+    canvasElement.toBlob(function(blob) {
+        request.send(blob);
+    });
+
+```
+with resizing via a new canvas
+
+```javascript
+    const resizeCanvas = document.createElement('canvas'),
+    resizeCanvasContext = resizeCanvas.getContext('2d'),
+    resizeRatio = 0.5; // Set appropriate resize ratio
+
+    resizeCanvas.width = canvasElement.width * resizeRatio;
+    resizeCanvas.height = canvasElement.height * resizeRatio;
+    resizeCanvasContext.drawImage(canvasElement, 0, 0, resizeCanvas.width, resizeCanvas.height);
+
+    resizeCanvas.toBlob(function(blob) {
+        request.send(blob);
+    });
+```
