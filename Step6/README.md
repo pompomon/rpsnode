@@ -203,6 +203,6 @@ appRestartButton.addEventListener("click", function(){
 }
 
 .photoUploadInput {
-    font-size: 1em;
+    font-size: 0.7em;
 }
 ```
