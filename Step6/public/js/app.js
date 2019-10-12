@@ -164,6 +164,7 @@ function init() {
             const image = new Image();
             image.onload = () => {
                 appContainer.querySelector(".appCanvasContainer").classList.remove('hide');
+                appContainer.querySelector(".photoUploadLabel").classList.add('hide');
                 canvasElement.classList.remove('hide');
                 canvasContext.drawImage(image,
                     0, 0, image.width, image.height,
@@ -180,7 +181,11 @@ function init() {
 
     bindCamera(videoElement);
     appRestartButton.addEventListener("click", function(){
-        startCounter();
+        if (navigator.getUserMedia) {
+            startCounter();
+        } else {
+            document.location.reload();
+        }
     });
 }
 
