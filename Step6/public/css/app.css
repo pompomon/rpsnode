@@ -165,9 +165,6 @@ html, body {
     background-image: url('../img/scissors.png');
 }
 
-.hide {
-    visibility: hidden;
-}
 
 /** Photo upload */
 .photoUploadLabel {
@@ -198,4 +195,8 @@ html, body {
 
 .photoUploadInput {
     font-size: 0.7em;
+}
+
+.hide {
+    display: none;
 }
